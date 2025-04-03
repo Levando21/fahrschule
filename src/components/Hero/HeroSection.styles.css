@@ -1,0 +1,52 @@
+/** @format */
+
+.hero-section {
+	position: relative;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-image: url(https://media1.giphy.com/media/l0HlKQPTHOGNUPTZm/200w.gif?cid=6c09b95201r3bspxo4ys8e22p196x4hjx5or21wd0qngn1mu&ep=v1_gifs_search&rid=200w.gif&ct=g);
+	background-size: cover;
+	background-position: center;
+	color: white; /* Default text color */
+}
+
+.hero-section .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+	z-index: -1; /* Make sure the overlay is behind the text */
+}
+
+.hero-section h1 {
+	font-size: 4rem;
+	font-weight: bold;
+	color: white; /* Text color */
+	text-shadow: 0 0 10px #fff, 0 0 20px #ff0000, 0 0 30px #ff0000,
+		0 0 40px #ff0000;
+}
+
+.hero-section p {
+	font-size: 1.25rem;
+	margin-top: 1rem;
+	color: white; /* Text color */
+	text-shadow: 0 0 10px #fff, 0 0 20px #ff0000, 0 0 30px #ff0000,
+		0 0 40px #ff0000;
+}
+
+.hero-section button {
+	margin-top: 1rem;
+	background-color: #2563eb;
+	padding: 0.75rem 1.5rem;
+	border-radius: 8px;
+	color: white;
+	font-size: 1rem;
+	color: white; /* Text color */
+	text-shadow: 0 0 10px #fff, 0 0 20px #ff0000, 0 0 30px #ff0000,
+		0 0 40px #ff0000;
+}

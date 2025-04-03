@@ -1,14 +1,13 @@
 /** @format */
 
-import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import HeroSection from "./components/Hero/HeroSection";
-import Courses from "./components/Courses/Courses";
+
 import Aufbauseminare from "./components/Aufbauseminare/Aufbauseminare";
 import Theorie from "./components/Theorie/Theorie";
-
+import Fuhrscheinklasse from "./components/Fuhrscheinklasse/Fuhrscheinklasse";
 function App() {
 	return (
 		<Router>
@@ -29,11 +28,14 @@ function App() {
 						path="/theorieprax"
 						element={<Theorie />}
 					/>
+					<Route
+						path="/fuhrscheinklas"
+						element={<Fuhrscheinklasse />}
+					/>
 					{/* Füge weitere Routen hinzu, z.B. für Preise, Kontakt etc. */}
 				</Routes>
 			</div>
 		</Router>
 	);
 }
-
 export default App;
