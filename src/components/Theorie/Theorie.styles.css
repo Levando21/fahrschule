@@ -1,0 +1,28 @@
+/** @format */
+.theorie-container {
+	display: flex;
+	flex-direction: column; /* stack vertically */
+	align-items: flex-start;
+}
+
+.inhalt-theorie {
+	text-align: left;
+	padding-left: 1.5rem;
+}
+
+.absatz {
+	text-align: left;
+}
+
+.klass-list {
+	list-style-type: none;
+	padding: 0;
+}
+.untertitel {
+	font-weight: bold;
+	font-style: italic;
+	margin-top: 1rem; /* Optional: space above subtitle */
+	margin-bottom: 0.5rem;
+}
+.prax-unit {
+}

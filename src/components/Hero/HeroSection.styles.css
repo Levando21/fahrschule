@@ -1,52 +1,68 @@
 /** @format */
 
-.hero-section {
+.hero-overlay {
+	position: absolute;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5); /* Halbtransparentes Schwarz */
+	z-index: 20;
+}
+.inhalt-container {
 	position: relative;
-	height: 100vh;
+	z-index: 30; /* Damit er über dem Overlay liegt */
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-image: url(https://media1.giphy.com/media/l0HlKQPTHOGNUPTZm/200w.gif?cid=6c09b95201r3bspxo4ys8e22p196x4hjx5or21wd0qngn1mu&ep=v1_gifs_search&rid=200w.gif&ct=g);
-	background-size: cover;
-	background-position: center;
-	color: white; /* Default text color */
+	height: 100%; /* Wichtig für vertikales Zentrieren */
+	text-align: center;
+	padding: 0 1rem; /* Optional: für kleinere Screens */
 }
 
-.hero-section .overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
+.hero-heading {
+	font-size: 3.7rem; /* text-4xl */
+	font-style: bold;
+	text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+	font-weight: 700;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* drop-shadow-lg */
+}
+
+.hero-section {
 	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-	z-index: -1; /* Make sure the overlay is behind the text */
-}
-
-.hero-section h1 {
-	font-size: 4rem;
-	font-weight: bold;
-	color: white; /* Text color */
-	text-shadow: 0 0 10px #fff, 0 0 20px #ff0000, 0 0 30px #ff0000,
-		0 0 40px #ff0000;
+	height: 90vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: white;
 }
 
 .hero-section p {
-	font-size: 1.25rem;
-	margin-top: 1rem;
-	color: white; /* Text color */
-	text-shadow: 0 0 10px #fff, 0 0 20px #ff0000, 0 0 30px #ff0000,
-		0 0 40px #ff0000;
+	font-size: 1.5rem;
+	margin-bottom: 20px;
 }
 
-.hero-section button {
-	margin-top: 1rem;
-	background-color: #2563eb;
-	padding: 0.75rem 1.5rem;
-	border-radius: 8px;
+.hero-subtext {
+	font-size: 1.125rem; /* text-lg */
+	@media (min-width: 768px) {
+		font-size: 1.25rem; /* text-xl for md */
+	}
+	margin-top: 1rem; /* mt-4 */
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* drop-shadow */
+}
+
+.hero-button {
+	margin-top: 1.5rem; /* mt-6 */
+	background-color: #3b82f6; /* bg-blue-500 */
+	padding: 0.75rem 2rem; /* py-3 px-8 */
+	border-radius: 0.5rem; /* rounded */
 	color: white;
-	font-size: 1rem;
-	color: white; /* Text color */
-	text-shadow: 0 0 10px #fff, 0 0 20px #ff0000, 0 0 30px #ff0000,
-		0 0 40px #ff0000;
+	transition: background-color 0.3s ease;
+	border: none;
+	cursor: pointer;
+}
+
+.hero-button:hover {
+	background-color: #facc15; /* Tailwind's yellow-400 */
+	color: black;
 }

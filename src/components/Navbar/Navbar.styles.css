@@ -5,141 +5,48 @@
  */
 
 /* Navigation Bar */
-nav {
+.navigation {
 	background-color: #222; /* Dark automotive-style color */
 	position: fixed; /* Fix at the top */
 	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 1000; /* Keep navbar on top */
-	padding: 1rem 3rem; /* Spacing for a modern look */
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
 	border-bottom: 2px solid #444; /* Adds a nice separator */
 	transition: background-color 0.3s ease-in-out; /* Smooth transition on hover */
 }
 
-/* Make navbar links look sleek and modern */
-ul {
+.container {
 	display: flex;
-	justify-content: center; /* Center the navigation items */
+	justify-content: center;
 	align-items: center;
+	text-align: center;
+}
+
+.options {
+	display: flex;
+	flex-direction: row;
 	list-style: none;
+	column-gap: 100px;
+	padding: 0;
+}
+/* Make navbar links look sleek and modern */
+
+.offers {
+	color: white;
 }
 
-li {
-	position: relative;
-	margin: 0 2rem; /* Spacing between menu items */
+.offers:hover {
+	font-size: 400;
+	color: #facc15;
 }
 
-/* Style for the navigation links */
-a {
-	text-decoration: none;
-	color: #e4e4e4; /* Light grey text */
-	padding: 1rem 2rem;
-	font-size: 1.1rem;
-	font-weight: 600;
-	text-transform: uppercase; /* Adds a modern touch */
-	transition: color 0.3s ease, transform 0.3s ease-in-out; /* Smooth hover effect */
+.list {
+	list-style: none;
+	padding: 0;
 }
 
-a:hover {
-	color: #fbbf24; /* Yellow for hover */
-	transform: translateY(-3px); /* Subtle lift on hover */
-}
-
-/* Dropdown Menu */
-ul li:hover > ul {
-	display: block; /* Show dropdown on hover */
-}
-
-ul ul {
-	display: none; /* Hidden by default */
-	position: absolute;
-	top: 100%; /* Dropdown just below the parent */
-	left: 0;
-	background-color: #333; /* Dark background for the dropdown */
-	border-radius: 8px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
-	min-width: 180px; /* Wider dropdown */
-	transition: opacity 0.3s ease;
-}
-
-ul ul li {
-	padding: 1rem 2rem;
-}
-
-ul ul li:hover {
-	background-color: #fbbf24; /* Highlight on hover */
-	color: #222; /* Darker text color when hovered */
-}
-
-/* Make the dropdown items more automotive-style */
-ul ul li a {
-	color: #e4e4e4;
-	text-transform: none; /* No uppercase for dropdown items */
-}
-
-ul ul li a:hover {
-	background-color: #2563eb; /* Subtle blue on hover */
-	color: #fff; /* White text on hover */
-}
-
-/* Responsive Styles: Navbar stays centered and mobile-friendly */
-@media (max-width: 768px) {
-	nav {
-		padding: 1rem 2rem; /* Smaller padding on mobile */
-	}
-
-	ul {
-		flex-direction: column; /* Stack items vertically */
-		align-items: flex-start; /* Align items to the left */
-		padding-left: 1rem;
-	}
-
-	li {
-		margin: 0.5rem 0; /* More space between items on mobile */
-	}
-
-	a {
-		font-size: 1.2rem; /* Larger text for mobile */
-		padding: 1rem 2rem;
-		width: 100%; /* Make links stretch across the full width */
-	}
-
-	/* Dropdown Menu for Mobile */
-	ul ul {
-		position: relative; /* Don't position absolute */
-		min-width: 100%; /* Full width for mobile dropdown */
-		box-shadow: none; /* No shadow for dropdown on mobile */
-	}
-
-	/* Navbar toggle for mobile */
-	.hamburger {
-		display: block;
-		cursor: pointer;
-		color: #fff;
-		font-size: 1.8rem;
-	}
-
-	/* Initially hide the dropdown menu */
-	.dropdown-content {
-		display: none;
-	}
-
-	/* Show the dropdown when hamburger is clicked */
-	.dropdown-content.show {
-		display: block;
-	}
-}
-
-/* Additional adjustments for very small screens */
-@media (max-width: 480px) {
-	a {
-		font-size: 1.1rem; /* Slightly smaller text on very small screens */
-		padding: 0.8rem 1.5rem;
-	}
-
-	li {
-		margin: 0.5rem 0;
-	}
+.option-leistung {
+	color: #000080;
 }

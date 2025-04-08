@@ -13,28 +13,26 @@ function App() {
 		<Router>
 			<Navbar />
 
-			<div className="container mt-20">
-				<Routes>
-					{/* Definiere die Routen für jede Seite */}
-					<Route
-						path="/"
-						element={<HeroSection />}
-					/>
-					<Route
-						path="/aufbauseminare"
-						element={<Aufbauseminare />}
-					/>
-					<Route
-						path="/theorieprax"
-						element={<Theorie />}
-					/>
-					<Route
-						path="/fuhrscheinklas"
-						element={<Fuhrscheinklasse />}
-					/>
-					{/* Füge weitere Routen hinzu, z.B. für Preise, Kontakt etc. */}
-				</Routes>
-			</div>
+			<Routes>
+				{/* Definiere die Routen für jede Seite */}
+				<Route
+					path="/"
+					element={<HeroSection />}
+				/>
+				<Route
+					path="/aufbauseminare"
+					element={<Aufbauseminare />}
+				/>
+				<Route
+					path="/theorieprax"
+					element={<Theorie />}
+				/>
+				<Route
+					path="/fuhrscheinklas"
+					element={<Fuhrscheinklasse />}
+				/>
+				{/* Füge weitere Routen hinzu, z.B. für Preise, Kontakt etc. */}
+			</Routes>
 		</Router>
 	);
 }
