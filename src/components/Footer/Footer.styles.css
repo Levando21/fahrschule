@@ -1,0 +1,57 @@
+/** @format */
+
+.footer {
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	padding: 20px 0;
+	text-align: center;
+	font-size: 14px;
+	width: 100%;
+	z-index: 0;
+
+	position: fixed;
+	bottom: 0;
+}
+
+.footer::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5); /* Halbtransparentes Schwarz */
+	z-index: -1; /* Das Overlay bleibt hinter dem Inhalt des Footers */
+}
+
+/* Footer-Inhalt */
+.footer-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* Links und Text im Footer */
+.footer-left,
+.footer-right {
+	display: flex;
+	gap: 10px;
+}
+
+.footer-middle {
+	color: white;
+}
+
+.footer-left a,
+.footer-right a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.footer-left a:hover,
+.footer-right a:hover {
+	text-decoration: underline;
+}

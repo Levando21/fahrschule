@@ -1,5 +1,10 @@
-/** @format */
-.theorie-container {
+/**
+ * Container für Fuhrscheinklasse
+ *
+ * @format
+ */
+
+.fuhrscheinklasse-container {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -11,46 +16,32 @@
 	margin: 0 auto;
 }
 
-.inhalt-theorie {
-	margin-bottom: 20px;
-	margin-top: 60px;
-	font-size: 18px; /* Größere Schrift */
+/* Inhalt der Fuhrscheinklasse */
+.inhalt-fuhrscheinklasse {
+	font-size: 18px;
 	line-height: 1.6;
 	color: #333;
 }
 
-.absatz {
-	margin-bottom: 1.5rem; /* Abstände zwischen den Absätzen */
-}
-
-/* Liste der Klassen und Sonderfahrten */
-.klass-list {
+/* Liste der Fuhrscheinklasse */
+.fuhrschein-list {
 	list-style-type: none;
 	padding: 0;
 	margin-top: 1rem;
 }
 
-.klass-list li {
+.fuhrschein-list li {
 	margin-bottom: 10px;
 	font-size: 16px;
 	color: #555; /* Etwas hellere Schriftfarbe */
 }
 
 /* Untertitel */
-.untertitel {
+.untertitel-fuhrscheinklasse {
 	font-weight: bold;
 	font-style: italic;
 	font-size: 20px;
 	margin-top: 1.5rem;
 	margin-bottom: 0.75rem;
 	color: #007bff; /* Blau für Untertitel */
-}
-
-/* Einfache Box für die praktische Einheit */
-.prax-unit {
-	background-color: #ffffff;
-	padding: 1.5rem;
-	margin-top: 1.5rem;
-	border-radius: 8px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

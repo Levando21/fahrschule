@@ -1,11 +1,12 @@
 /** @format */
 
 import React, { useEffect, useState } from "react";
-import emotion1 from "../../assets/emotionheader.jpg";
-import emotion2 from "../../assets/emotionheader_2.jpg";
+import emotion1 from "../../assets/emotion1.png";
+import emotion2 from "../../assets/emotion2.png";
+import emotion3 from "../../assets/emotion3.png";
 import "./HeroSection.styles.css";
 import Modal from "../Modal/Modal";
-import { Variants, Transition, motion } from "framer-motion";
+import { Variants, Transition, motion, AnimatePresence } from "framer-motion";
 
 const HeroSection: React.FC = () => {
 	type Slides = {
@@ -16,6 +17,7 @@ const HeroSection: React.FC = () => {
 	const slides: Slides[] = [
 		{ url: emotion1, title: "Lächelnde Frau" },
 		{ url: emotion2, title: "Junge und Hund" },
+		{ url: emotion3, title: "Junge und Hund" },
 	];
 
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -48,7 +50,6 @@ const HeroSection: React.FC = () => {
 		duration: 0.3,
 	};
 
-	// Falling text animation variants
 	const fallingTextVariants: Variants = {
 		initial: { y: -50, opacity: 0 },
 		animate: (index: number) => ({
@@ -74,50 +75,61 @@ const HeroSection: React.FC = () => {
 			exit="out"
 			variants={pageVariants}
 			transition={pageTransition}
-			className="hero-section relative h-screen w-full">
-			<div
-				className="relative inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out w-full h-full z-10"
-				style={{
-					backgroundImage: `url(${slides[currentIndex].url})`,
-					backgroundPosition: "center",
-					width: "100%",
-					height: "100%",
-					backgroundRepeat: "no-repeat",
-				}}>
-				<div className="hero-overlay"></div>
-				<div className="inhalt-container">
-					<h1 className="hero-heading">
-						{headingLetters.map((letter, index) => (
-							<motion.span
-								key={index}
-								variants={fallingTextVariants}
-								initial="initial"
-								animate="animate"
-								custom={index}
-								style={{
-									display: "inline-block",
-									fontSize: "3rem",
-									fontWeight: "bold",
-								}}>
-								{letter === " " ? "\u00A0" : letter}
-							</motion.span>
-						))}
-					</h1>
-					<p className="hero-subtext">
-						Schnell, sicher und mit Spaß zum Führerschein.
-					</p>
-					<button
-						className="hero-button"
-						onClick={onAnmeldenClick}>
-						Jetzt zum Antragsformular
-					</button>
-				</div>
-
-				<Modal
-					isOpen={isModalOpen}
-					onClose={closeModal}
+			className="hero-section relative h-screen w-full overflow-hidden">
+			<AnimatePresence mode="wait">
+				<motion.div
+					key={slides[currentIndex].url}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 0.8 }}
+					className="slide-back"
+					style={{
+						backgroundImage: `url(${slides[currentIndex].url})`,
+						backgroundPosition: "center",
+						backgroundSize: "cover",
+						width: "100%",
+						height: "100%",
+						position: "absolute",
+						top: 0,
+						left: 0,
+					}}
 				/>
+			</AnimatePresence>
+
+			<div className="hero-overlay"></div>
+			<div className="inhalt-container">
+				<h1 className="hero-heading">
+					{headingLetters.map((letter, index) => (
+						<motion.span
+							key={index}
+							variants={fallingTextVariants}
+							initial="initial"
+							animate="animate"
+							custom={index}
+							style={{
+								display: "inline-block",
+								fontSize: "3rem",
+								fontWeight: "bold",
+							}}>
+							{letter === " " ? "\u00A0" : letter}
+						</motion.span>
+					))}
+				</h1>
+				<p className="hero-subtext">
+					Schnell, sicher und mit Spaß zum Führerschein.
+				</p>
+				<button
+					className="hero-button"
+					onClick={onAnmeldenClick}>
+					Jetzt zum Antragsformular
+				</button>
 			</div>
+
+			<Modal
+				isOpen={isModalOpen}
+				onClose={closeModal}
+			/>
 		</motion.div>
 	);
 };

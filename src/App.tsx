@@ -1,20 +1,23 @@
 /** @format */
 
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 import HeroSection from "./components/Hero/HeroSection";
-
 import Aufbauseminare from "./components/Aufbauseminare/Aufbauseminare";
-import Theorie from "./components/Theorie/Theorie";
+import TheorieIntro from "./components/TheorieIntro/TheorieIntro";
 import Fuhrscheinklasse from "./components/Fuhrscheinklasse/Fuhrscheinklasse";
-function App() {
-	return (
-		<Router>
-			<Navbar />
+import Footer from "./components/Footer/Footer";
 
+function App() {
+	const location = useLocation();
+	const hideFooterRoutes = ["/"];
+	const shouldShowFooter = !hideFooterRoutes.includes(location.pathname);
+
+	return (
+		<>
+			<Navbar />
 			<Routes>
-				{/* Definiere die Routen für jede Seite */}
 				<Route
 					path="/"
 					element={<HeroSection />}
@@ -24,16 +27,17 @@ function App() {
 					element={<Aufbauseminare />}
 				/>
 				<Route
-					path="/theorieprax"
-					element={<Theorie />}
+					path="/theoriepraxintro"
+					element={<TheorieIntro />}
 				/>
 				<Route
 					path="/fuhrscheinklas"
 					element={<Fuhrscheinklasse />}
 				/>
-				{/* Füge weitere Routen hinzu, z.B. für Preise, Kontakt etc. */}
 			</Routes>
-		</Router>
+			{shouldShowFooter && <Footer />}
+		</>
 	);
 }
+
 export default App;

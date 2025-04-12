@@ -2,6 +2,7 @@
 
 import React from "react";
 import "./Modal.styles.css"; // Import the custom CSS file
+import Form from "../Form/Form";
 
 interface ModalProps {
 	isOpen: boolean;
@@ -25,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 				</button>
 				<div className="modal-content">
 					<h2>Modal Title</h2>
-					<p>This is some content inside the modal!</p>
+					<Form />
 				</div>
 			</div>
 		</div>

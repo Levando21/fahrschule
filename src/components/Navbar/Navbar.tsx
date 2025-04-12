@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
 								</li>
 								<li className="option-leistung">
 									<Link
-										to="/theorieprax"
+										to="/theoriepraxintro"
 										className="theorie-option">
 										Theorie & Praxis
 									</Link>

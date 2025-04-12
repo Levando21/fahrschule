@@ -6,29 +6,41 @@
 	background-color: rgba(0, 0, 0, 0.5); /* Halbtransparentes Schwarz */
 	z-index: 20;
 }
+
+.slide-back {
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: opacity 1s ease-in-out;
+	z-index: 10;
+}
+
 .inhalt-container {
 	position: relative;
-	z-index: 30; /* Damit er über dem Overlay liegt */
+	z-index: 30;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100%; /* Wichtig für vertikales Zentrieren */
+	height: 100%;
 	text-align: center;
-	padding: 0 1rem; /* Optional: für kleinere Screens */
+	padding: 0 16px;
 }
 
 .hero-heading {
-	font-size: 3.7rem; /* text-4xl */
+	font-size: 10px; /* 48px */
 	font-style: bold;
 	text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 	font-weight: 700;
-	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* drop-shadow-lg */
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-section {
 	width: 100%;
-	height: 90vh;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -38,24 +50,21 @@
 }
 
 .hero-section p {
-	font-size: 1.5rem;
+	font-size: 24px; /* 1.5rem */
 	margin-bottom: 20px;
 }
 
 .hero-subtext {
-	font-size: 1.125rem; /* text-lg */
-	@media (min-width: 768px) {
-		font-size: 1.25rem; /* text-xl for md */
-	}
-	margin-top: 1rem; /* mt-4 */
-	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* drop-shadow */
+	font-size: 18px; /* 1.125rem */
+	margin-top: 16px; /* 1rem */
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .hero-button {
-	margin-top: 1.5rem; /* mt-6 */
+	margin-top: 24px; /* 1.5rem */
 	background-color: #3b82f6; /* bg-blue-500 */
-	padding: 0.75rem 2rem; /* py-3 px-8 */
-	border-radius: 0.5rem; /* rounded */
+	padding: 12px 32px; /* 0.75rem 2rem */
+	border-radius: 8px; /* 0.5rem */
 	color: white;
 	transition: background-color 0.3s ease;
 	border: none;
@@ -65,4 +74,27 @@
 .hero-button:hover {
 	background-color: #facc15; /* Tailwind's yellow-400 */
 	color: black;
+}
+
+@media screen and (max-width: 768px) {
+	.slide-back {
+		background-size: cover;
+	}
+
+	.slide-back {
+		background-size: cover;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.slide-back {
+		background-size: cover;
+	}
+
+	.hero-heading {
+		font-size: 16px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
 }

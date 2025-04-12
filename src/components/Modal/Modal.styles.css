@@ -15,12 +15,15 @@
 
 .modal-container {
 	background-color: white;
-	padding: 20px;
+	padding: 10px;
 	border-radius: 8px;
-	width: 400px; /* modal width */
-	max-width: 100%;
+	width: 100%; /* modal width */
+	max-width: 600px;
+	max-height: 90vh;
 	position: relative;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow */
+	min-height: 300px;
+	overflow-y: auto;
 }
 
 .close-button {
@@ -36,7 +39,12 @@
 }
 
 .modal-content {
-	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0;
 	font-size: 16px;
 	color: #333;
+
+	max-height: 90vh;
 }

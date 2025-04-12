@@ -1,11 +1,15 @@
 /** @format */
 
+import React from "react";
+import "./Führerscheinklasse.stales.css";
 const Fuhrscheinklasse: React.FC = () => {
 	return (
-		<div>
-			<h3>Wir bilden aus in den folgenden Klassen:</h3>
+		<div className="fuhrscheinklasse-container">
+			<h3 className="inhalt-fuhrscheinklasse">
+				Wir bilden aus in den folgenden Klassen:
+			</h3>
 
-			<ul>
+			<ul className="fuhrschein-list">
 				<li>
 					Klasse BF 17: begleitetes Fahren mit 17 Jahren; ein Jahr nur Fahrerlaubnis
 					mit Begleiter ab 30 Jahren{" "}
@@ -14,7 +18,7 @@ const Fuhrscheinklasse: React.FC = () => {
 				<li>Klasse B: auch auf Automatik</li>
 				<li>
 					{" "}
-					B96: Kraftfahrzeug der Klasse B + Anhänger ( Anhänger mehr als 750 kg ZGG,
+					B96: Kraftfahrzeug der Klasse B + Anhänger (Anhänger mehr als 750 kg ZGG,
 					sowie Zugverband mind. 3500 kg jedoch nicht mehr als 4250 kg ZGG)
 				</li>
 				<li>
@@ -29,4 +33,5 @@ const Fuhrscheinklasse: React.FC = () => {
 		</div>
 	);
 };
+
 export default Fuhrscheinklasse;
