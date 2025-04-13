@@ -3,30 +3,37 @@
 import React, { useState } from "react";
 import "./Navbar.styles.css";
 import { Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar: React.FC = () => {
-	// Zustand, um zu prüfen, ob das Dropdown-Menü angezeigt wird
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
 
-	// Funktion, um das Dropdown anzuzeigen oder zu verstecken
-	const toggleDropdown = () => {
-		setIsDropdownOpen(!isDropdownOpen);
-	};
+	const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+	const toggleMenu = () => setMenuOpen(!menuOpen);
+	const closeMenu = () => setMenuOpen(false);
 
 	return (
 		<nav className="navigation">
 			<div className="container">
-				{/* Navigations-Links */}
-				<ul className="options">
+				{/* Burger Icon for mobile */}
+				<div
+					className="burger"
+					onClick={toggleMenu}>
+					{menuOpen ? <FaTimes /> : <FaBars />}
+				</div>
+
+				{/* Navigation Options */}
+				<ul className={`options ${menuOpen ? "open" : ""}`}>
 					<li>
 						<a
 							href="/"
-							className="offers">
+							className="offers"
+							onClick={closeMenu}>
 							Startseite
 						</a>
 					</li>
 
-					{/* Dropdown-Menü für "Leistungen" */}
 					<li
 						className="relative"
 						onMouseEnter={toggleDropdown}
@@ -37,26 +44,25 @@ const Navbar: React.FC = () => {
 							Leistungen
 						</a>
 						{isDropdownOpen && (
-							<ul className="list absolute bg-blue-700 text-white w-36 mt-2 rounded-md shadow-lg left-1/2 transform -translate-x-1/2 text-center">
+							<ul className="list">
 								<li className="option-leistung">
 									<Link
 										to="/fuhrscheinklas"
-										className="fuhr-option">
+										onClick={closeMenu}>
 										Führerscheinklassen
 									</Link>
 								</li>
 								<li className="option-leistung">
 									<Link
 										to="/theoriepraxintro"
-										className="theorie-option">
+										onClick={closeMenu}>
 										Theorie & Praxis
 									</Link>
 								</li>
-
 								<li className="option-leistung">
 									<Link
 										to="/aufbauseminare"
-										className="aufbau-option">
+										onClick={closeMenu}>
 										Aufbauseminare
 									</Link>
 								</li>
@@ -64,25 +70,27 @@ const Navbar: React.FC = () => {
 						)}
 					</li>
 
-					{/* Weitere Links */}
 					<li>
 						<a
 							href="/preise"
-							className="offers">
+							className="offers"
+							onClick={closeMenu}>
 							Preise
 						</a>
 					</li>
 					<li>
 						<a
 							href="/aktuell"
-							className="offers">
+							className="offers"
+							onClick={closeMenu}>
 							Aktuelles
 						</a>
 					</li>
 					<li>
 						<a
 							href="/kontakt"
-							className="offers">
+							className="offers"
+							onClick={closeMenu}>
 							Kontakt
 						</a>
 					</li>

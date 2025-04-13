@@ -31,7 +31,6 @@ const HeroSection: React.FC = () => {
 		setIsModalOpen(false);
 	};
 
-	// Auto-slide change every 3 seconds
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);

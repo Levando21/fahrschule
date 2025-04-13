@@ -6,47 +6,145 @@
 
 /* Navigation Bar */
 .navigation {
-	background-color: #222; /* Dark automotive-style color */
-	position: fixed; /* Fix at the top */
+	background-color: #222;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 1000; /* Keep navbar on top */
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
-	border-bottom: 2px solid #444; /* Adds a nice separator */
-	transition: background-color 0.3s ease-in-out; /* Smooth transition on hover */
+	z-index: 1000;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	border-bottom: 2px solid #444;
+	transition: background-color 0.3s ease-in-out;
 }
 
+/* Layout Container */
 .container {
+	max-width: 1280px;
+	margin: 0 auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	text-align: center;
+	position: relative;
+	height: 64px;
+	padding: 0 1rem;
 }
 
+/* Burger Button */
+.burger {
+	display: none;
+	cursor: pointer;
+	position: absolute;
+	right: 1rem;
+	font-size: 1.8rem;
+	color: white;
+	z-index: 1100;
+	background: none;
+	border: none;
+}
+
+/* Nav Links */
 .options {
 	display: flex;
 	flex-direction: row;
 	list-style: none;
 	column-gap: 100px;
 	padding: 0;
+	margin: 0;
+	align-items: center;
+	transition: all 0.3s ease-in-out;
 }
-/* Make navbar links look sleek and modern */
+
+/* Desktop Dropdown */
+.options li {
+	position: relative;
+}
 
 .offers {
 	color: white;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 16px;
+	transition: color 0.3s ease;
 }
 
 .offers:hover {
-	font-size: 400;
 	color: #facc15;
 }
 
 .list {
-	list-style: none;
-	padding: 0;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #444;
+	color: white;
+	width: 160px;
+	border-radius: 8px;
+	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+	padding: 0.5rem 0;
+	z-index: 100;
+	text-align: center;
 }
 
 .option-leistung {
+	padding: 0.5rem 0;
 	color: #000080;
+}
+
+.fuhr-option,
+.theorie-option,
+.aufbau-option {
+	color: white;
+	text-decoration: none;
+	font-size: 14px;
+	display: block;
+}
+
+.fuhr-option:hover,
+.theorie-option:hover,
+.aufbau-option:hover {
+	color: #facc15;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+
+@media screen and (max-width: 768px) {
+	.container {
+		justify-content: space-between;
+	}
+
+	.burger {
+		display: block;
+	}
+
+	.options {
+		position: absolute;
+		top: 64px;
+		left: 0;
+		width: 100%;
+		flex-direction: column;
+		background-color: #222;
+		padding: 1rem 0;
+		row-gap: 20px;
+		text-align: center;
+		display: none;
+	}
+
+	.options.open {
+		display: flex;
+	}
+
+	.list {
+		position: static;
+		transform: none;
+		box-shadow: none;
+		background-color: #444;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.options {
+		font-size: 14px;
+		row-gap: 14px;
+	}
 }
