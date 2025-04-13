@@ -31,11 +31,19 @@ const HeroSection: React.FC = () => {
 		setIsModalOpen(false);
 	};
 
+	// Auto-slide change every 3 seconds
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
 		}, 3000);
 		return () => clearInterval(interval);
+	}, []);
+
+	useEffect(() => {
+		slides.forEach((slide) => {
+			const img = new Image();
+			img.src = slide.url;
+		});
 	}, []);
 
 	const pageVariants: Variants = {
@@ -64,7 +72,6 @@ const HeroSection: React.FC = () => {
 		}),
 	};
 
-	// Split heading text into letters
 	const headingText = "Lerne Fahren mit uns!";
 	const headingLetters = [...headingText];
 
