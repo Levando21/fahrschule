@@ -48,3 +48,32 @@
 
 	max-height: 90vh;
 }
+
+@media screen and (max-width: 768px) {
+	.modal-container {
+		width: 90%;
+		padding: 20px;
+		border-radius: 10px;
+	}
+
+	.modal-content {
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.modal-container {
+		width: 95%;
+		border-radius: 10px;
+	}
+
+	.modal-content {
+		font-size: 14px;
+	}
+
+	.close-button {
+		top: 8px;
+		right: 8px;
+		font-size: 18px;
+	}
+}

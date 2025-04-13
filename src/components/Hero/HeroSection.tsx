@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import emotion1 from "../../assets/emotion1.png";
 import emotion2 from "../../assets/emotion2.png";
 import emotion3 from "../../assets/emotion3.png";
+import emotion4 from "../../assets/emotion4.png";
+import emotion5 from "../../assets/emotion5.png";
 import "./HeroSection.styles.css";
 import Modal from "../Modal/Modal";
 import { Variants, Transition, motion, AnimatePresence } from "framer-motion";
@@ -18,6 +20,8 @@ const HeroSection: React.FC = () => {
 		{ url: emotion1, title: "Lächelnde Frau" },
 		{ url: emotion2, title: "Junge und Hund" },
 		{ url: emotion3, title: "Junge und Hund" },
+		{ url: emotion4, title: "Motofahrer" },
+		{ url: emotion5, title: "Paar mit Führerschein" },
 	];
 
 	const [currentIndex, setCurrentIndex] = useState(0);

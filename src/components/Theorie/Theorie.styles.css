@@ -1,29 +1,32 @@
 /** @format */
+/** @format */
+
+/* ----- Basis-Layout (Desktop-First) ----- */
 .theorie-container {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 2rem;
-	background-color: #f4f7fb; /* Heller Hintergrund */
+	background-color: #f4f7fb;
 	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	max-width: 1200px;
 	margin: 0 auto;
 }
 
+/* Inhalt */
 .inhalt-theorie {
-	margin-bottom: 20px;
-	margin-top: 60px;
-	font-size: 18px; /* Größere Schrift */
+	margin: 60px 0 20px 0;
+	font-size: 18px;
 	line-height: 1.6;
 	color: #333;
 }
 
 .absatz {
-	margin-bottom: 1.5rem; /* Abstände zwischen den Absätzen */
+	margin-bottom: 1.5rem;
 }
 
-/* Liste der Klassen und Sonderfahrten */
+/* Liste */
 .klass-list {
 	list-style-type: none;
 	padding: 0;
@@ -33,24 +36,64 @@
 .klass-list li {
 	margin-bottom: 10px;
 	font-size: 16px;
-	color: #555; /* Etwas hellere Schriftfarbe */
+	color: #555;
 }
 
-/* Untertitel */
 .untertitel {
 	font-weight: bold;
 	font-style: italic;
 	font-size: 20px;
 	margin-top: 1.5rem;
 	margin-bottom: 0.75rem;
-	color: #007bff; /* Blau für Untertitel */
+	color: #007bff;
 }
 
-/* Einfache Box für die praktische Einheit */
 .prax-unit {
 	background-color: #ffffff;
 	padding: 1.5rem;
 	margin-top: 1.5rem;
 	border-radius: 8px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ----------- Responsive für Tablets (max 768px) ----------- */
+@media screen and (max-width: 768px) {
+	.theorie-container {
+		padding: 1.5rem;
+	}
+
+	.inhalt-theorie {
+		font-size: 17px;
+	}
+
+	.klass-list li {
+		font-size: 15px;
+	}
+
+	.untertitel {
+		font-size: 18px;
+	}
+}
+
+/* ----------- Responsive für Smartphones (max 375px) ----------- */
+@media screen and (max-width: 375px) {
+	.theorie-container {
+		padding: 1rem;
+	}
+
+	.inhalt-theorie {
+		font-size: 16px;
+	}
+
+	.klass-list li {
+		font-size: 14px;
+	}
+
+	.untertitel {
+		font-size: 16px;
+	}
+
+	.prax-unit {
+		padding: 1rem;
+	}
 }
