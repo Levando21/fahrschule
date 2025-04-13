@@ -1,13 +1,7 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
-import emotion1 from "../../assets/emotion1.png";
-import emotion2 from "../../assets/emotion2.png";
-import emotion3 from "../../assets/emotion3.png";
-import emotion4 from "../../assets/emotion4.png";
-import emotion5 from "../../assets/emotion5.png";
-import emotion4mobile from "../../assets/emotion4mobile.png";
-import emotion3mobile from "../../assets/emotion3mobile.png";
+import React, { useEffect, useState, useMemo } from "react";
+
 import "./HeroSection.styles.css";
 import Modal from "../Modal/Modal";
 import { Variants, Transition, motion, AnimatePresence } from "framer-motion";
@@ -18,15 +12,56 @@ const HeroSection: React.FC = () => {
 		title: string;
 	};
 
-	const isMobile = window.innerWidth <= 375;
+	const [isMobile, setIsMobile] = useState(window.innerWidth <= 375);
 
-	const slides: Slides[] = [
-		{ url: emotion1, title: "Lächelnde Frau" },
-		{ url: emotion2, title: "Junge und Hund" },
-		{ url: isMobile ? emotion3mobile : emotion3, title: "Junge und Hund" },
-		{ url: isMobile ? emotion4mobile : emotion4, title: "Motofahrer" },
-		{ url: emotion5, title: "Paar mit Führerschein" },
-	];
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth <= 375);
+		};
+
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+	useEffect(() => {
+		const allImages = [
+			"https://res.cloudinary.com/dnrypbyww/image/upload/v1744574805/emotion1_hvilh6.png",
+			"https://res.cloudinary.com/dnrypbyww/image/upload/v1744574806/emotion2_hmg3da.png",
+			"https://res.cloudinary.com/dnrypbyww/image/upload/v1744574806/emotion3_emircs.png",
+			"https://res.cloudinary.com/dnrypbyww/image/upload/v1744574806/emotion4_jyzoju.png",
+			"https://res.cloudinary.com/dnrypbyww/image/upload/v1744574806/emotion5_odgevb.png",
+		];
+
+		allImages.forEach((src) => {
+			const img = new Image();
+			img.src = src;
+		});
+	}, []);
+
+	const slides: Slides[] = useMemo(() => {
+		return [
+			{
+				url: "https://res.cloudinary.com/dnrypbyww/image/upload/v1744574805/emotion1_hvilh6.png",
+				title: "Lächelnde Frau",
+			},
+			{
+				url: "https://res.cloudinary.com/dnrypbyww/image/upload/v1744574806/emotion2_hmg3da.png",
+				title: "Junge und Hund",
+			},
+			{
+				url: "https://res.cloudinary.com/dnrypbyww/image/upload/v1744574806/emotion3_emircs.png",
+				title: "Junge und Hund",
+			},
+			{
+				url: "https://res.cloudinary.com/dnrypbyww/image/upload/v1744574806/emotion4_jyzoju.png",
+				title: "Motofahrer",
+			},
+			{
+				url: "https://res.cloudinary.com/dnrypbyww/image/upload/v1744574806/emotion5_odgevb.png",
+				title: "Paar mit Führerschein",
+			},
+		];
+	}, []);
 
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,13 +79,6 @@ const HeroSection: React.FC = () => {
 			setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
 		}, 3000);
 		return () => clearInterval(interval);
-	}, []);
-
-	useEffect(() => {
-		slides.forEach((slide) => {
-			const img = new Image();
-			img.src = slide.url;
-		});
 	}, []);
 
 	const pageVariants: Variants = {
