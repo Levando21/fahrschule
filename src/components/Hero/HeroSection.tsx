@@ -6,6 +6,8 @@ import emotion2 from "../../assets/emotion2.png";
 import emotion3 from "../../assets/emotion3.png";
 import emotion4 from "../../assets/emotion4.png";
 import emotion5 from "../../assets/emotion5.png";
+import emotion4mobile from "../../assets/emotion4mobile.png";
+import emotion3mobile from "../../assets/emotion3mobile.png";
 import "./HeroSection.styles.css";
 import Modal from "../Modal/Modal";
 import { Variants, Transition, motion, AnimatePresence } from "framer-motion";
@@ -16,11 +18,13 @@ const HeroSection: React.FC = () => {
 		title: string;
 	};
 
+	const isMobile = window.innerWidth <= 375;
+
 	const slides: Slides[] = [
 		{ url: emotion1, title: "Lächelnde Frau" },
 		{ url: emotion2, title: "Junge und Hund" },
-		{ url: emotion3, title: "Junge und Hund" },
-		{ url: emotion4, title: "Motofahrer" },
+		{ url: isMobile ? emotion3mobile : emotion3, title: "Junge und Hund" },
+		{ url: isMobile ? emotion4mobile : emotion4, title: "Motofahrer" },
 		{ url: emotion5, title: "Paar mit Führerschein" },
 	];
 
