@@ -61,7 +61,7 @@ const HeroSection: React.FC = () => {
 				title: "Paar mit Führerschein",
 			},
 		];
-	}, []);
+	}, [isMobile]);
 
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isModalOpen, setIsModalOpen] = useState(false);
